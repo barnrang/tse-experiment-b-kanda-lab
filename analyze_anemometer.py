@@ -13,7 +13,7 @@ import pandas
 
 FLAGS = flags.FLAGS
 
-flags.DEFINE_string('filepath', '2018_data.xlsx', 'Path to data file')
+flags.DEFINE_string('filepath', 'data/2018_data.xlsx', 'Path to data file')
 
 
 def parse_time(time_str: str) -> float:

@@ -9,6 +9,6 @@
 ## Draw graphs
 
 ```
-python analyze_anemometer.py --filepath 2018_data.xlsx
-python analyze_anemometer.py --filepath demo_data.xlsx
+python analyze_anemometer.py --filepath data/2018_data.xlsx
+python analyze_anemometer.py --filepath data/demo_data.xlsx
 ```
