@@ -16,7 +16,8 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('filepath', 'data/2018_data.xlsx', 'Path to data file')
 
 
-def parse_time(time_str: str) -> float:
+def parse_time(time_str):
+    # type: (str) -> float
     """ Parse a time string to unix time (seconds since the Epoch)
 
     Example: 12-06-08 15:39:37.8s -> ???
