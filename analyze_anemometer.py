@@ -77,6 +77,9 @@ def plot(u_dev, v_dev, w_dev, temp_dev, time):
     # Sync all x-axis together
     all_axes[0].get_shared_x_axes().join(*all_axes)
 
+    # Add unit
+    all_axes[-1].set_xlabel("Time (s)")
+
     fig.align_ylabels()
     fig.set_tight_layout(True)
     return fig
