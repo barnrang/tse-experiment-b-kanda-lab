@@ -14,7 +14,7 @@ import pandas
 FLAGS = flags.FLAGS
 
 flags.DEFINE_string('filepath', 'data/2018_data.xlsx', 'Path to data file')
-
+flags.DEFINE_string('outpath', '', 'Path to output, Default not display')
 
 def parse_time(time_str):
     # type: (str) -> float
@@ -127,7 +127,10 @@ def main(argv):
     temp_dev = temp - np.mean(temp)
 
     plot(u_dev, v_dev, w_dev, temp_dev, time)
-    plt.show()
+    if not FLAGS.outpath:
+        plt.show()
+    else:
+        plt.savefig(FLAGS.outpath)
 
 
 if __name__ == '__main__':
