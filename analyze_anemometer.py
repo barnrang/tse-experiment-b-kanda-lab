@@ -56,12 +56,12 @@ def plot(u_dev, v_dev, w_dev, temp_dev, time):
     plot_count = 6
 
     plots = [
-        (u_dev, "u'"),
-        (v_dev, "v'"),
-        (w_dev, "w'"),
-        (temp_dev, "T'"),
-        (u_dev * w_dev, "u'w'"),
-        (w_dev * temp_dev, "w'T'"),
+        (u_dev, "u'\n(m/s)"),
+        (v_dev, "v'\n(m/s)"),
+        (w_dev, "w'\n(m/s)"),
+        (temp_dev, "T'\n(K)"),
+        (u_dev * w_dev, "u'w'\n" + r"$(m^2/s^2)$"),
+        (w_dev * temp_dev, "w'T'\n(Km/s)"),
     ]
 
     # Draw subplots
@@ -79,7 +79,6 @@ def plot(u_dev, v_dev, w_dev, temp_dev, time):
 
     # Add unit
     all_axes[-1].set_xlabel("Time (s)")
-    fig.text(0.02, 0.5, 'Velocity (m/s)', ha='center', va='center', rotation='vertical')
 
     fig.align_ylabels()
     fig.set_tight_layout(True)
