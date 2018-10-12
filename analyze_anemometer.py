@@ -14,7 +14,7 @@ import pandas
 FLAGS = flags.FLAGS
 
 flags.DEFINE_string('filepath', 'data/2018_data.xlsx', 'Path to data file')
-flags.DEFINE_string('outpath', '', 'Path to output, Default not display')
+flags.DEFINE_string('outpath', None, 'Path to output, Default not display')
 
 def parse_time(time_str):
     # type: (str) -> float
@@ -79,6 +79,7 @@ def plot(u_dev, v_dev, w_dev, temp_dev, time):
 
     # Add unit
     all_axes[-1].set_xlabel("Time (s)")
+    fig.text(0.02, 0.5, 'Velocity (m/s)', ha='center', va='center', rotation='vertical')
 
     fig.align_ylabels()
     fig.set_tight_layout(True)
@@ -127,10 +128,11 @@ def main(argv):
     temp_dev = temp - np.mean(temp)
 
     plot(u_dev, v_dev, w_dev, temp_dev, time)
-    if not FLAGS.outpath:
-        plt.show()
-    else:
+    if FLAGS.outpath is not None:
         plt.savefig(FLAGS.outpath)
+    else:
+        plt.show()
+        
 
 
 if __name__ == '__main__':
